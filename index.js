@@ -42,7 +42,7 @@ app.post('/webhooks', function (req, res) {
   console.log(JSON.stringify(req.body, null, 2));
   received_updates.unshift(req.body);
   // take the last 10k entries
-  received_updates = received_updates.slice(-10000);
+  received_updates = received_updates.slice(0, 10000);
   res.sendStatus(200);
 });
 
